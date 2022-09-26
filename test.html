@@ -1,0 +1,42 @@
+<html>
+<head></head>
+<body>
+<canvas id="theCanvas" height = "1000" width="1000"></canvas>
+<script>
+var x = 100;
+var y = 100;
+var can = document.getElementById("theCanvas");
+var ctx = can.getContext("2d");
+window.addEventListener("keydown", move);
+
+function move(e)
+{
+//alert(e.keyCode);
+if (e.keyCode == 87) // w - up
+{
+y -= 10; // y = y -5
+}
+if (e.keyCode == 83) // s - down
+{
+y = y + 10; // y += 5
+}
+if (e.keyCode == 68) // d - right
+{
+x += 10;
+}
+if (e.keyCode == 65) //a - left
+{
+x -= 10;
+}
+ctx.clearRect(0, 0, can.width, can.height);
+update();
+}
+
+function update()
+{
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(x, y, 150, 150);
+}
+</script>
+</body>
+</html>
